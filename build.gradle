@@ -1,0 +1,40 @@
+apply plugin: 'maven-publish'
+apply plugin: 'android-library'
+
+version = "0.0.1-SNAPSHOT"
+group = "com.zutubi"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.10.+'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "19.0.3"
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact "${project.libsDir}/${project.name}-${project.version}.aar"
+        }
+    }
+    repositories {
+        maven {
+            url "../maven-decentral.github.io/m2/${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases' }"
+        }
+    }
+}

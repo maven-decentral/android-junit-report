@@ -1,3 +1,6 @@
 build
 local.properties
 .classpath
+/.idea/
+/.gradle/
+/*.iml
