@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'android-library'
 
-version = "0.0.1-SNAPSHOT"
+version = "2a283d2983"
 group = "com.zutubi"
 
 buildscript {
